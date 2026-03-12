@@ -30,11 +30,11 @@ app.get('/api/appointments', (req, res) => {
 });
 
 app.post('/api/appointments', (req, res) => {
-  const { name, phone, email, service, date, time, notes } = req.body;
+  const { name, phone, email, service, notes } = req.body;
 
-  if (!name || !phone || !email || !service || !date || !time) {
+  if (!name || !phone || !email) {
     return res.status(400).json({
-      message: 'Please fill all required appointment details.'
+      message: 'Please fill all required details (Name, Phone, Email).'
     });
   }
 
@@ -46,9 +46,7 @@ app.post('/api/appointments', (req, res) => {
       name,
       phone,
       email,
-      service,
-      date,
-      time,
+      service: service || 'Enquiry',
       notes: notes || '',
       createdAt: new Date().toISOString()
     };
@@ -57,11 +55,11 @@ app.post('/api/appointments', (req, res) => {
     fs.writeFileSync(appointmentsFile, JSON.stringify(existing, null, 2));
 
     res.status(201).json({
-      message: 'Appointment booked successfully.',
+      message: 'Enquiry received successfully.',
       appointment
     });
   } catch (error) {
-    res.status(500).json({ message: 'Unable to save appointment.' });
+    res.status(500).json({ message: 'Unable to save enquiry.' });
   }
 });
 

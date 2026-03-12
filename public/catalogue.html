@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue - Sharrix Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .catalogue-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .catalogue-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    .catalogue-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      background: var(--bg-soft);
+    }
+    .catalogue-item h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .catalogue-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .brochure-section {
+      background: var(--bg-soft);
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+      border: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a href="index.html" style="display: flex; align-items: center; gap: 1rem;">
+          <div class="brand-mark">
+            <img src="images/logo.png" alt="Sharrix Studios Logo">
+          </div>
+          <div class="brand-text">
+            <h1>Sharrix Studios<sup>&trade;</sup></h1>
+            <p>Same Game, Different Level</p>
+          </div>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="catalogue.html" class="active">Catalogue</a>
+        <a href="index.html#appointment" class="btn btn-sm">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <p class="section-tag">Explore Our Gear & Services</p>
+    <h3>Studio Catalogue</h3>
+    <p>A comprehensive look at our equipment, instruments, and specialized service packages.</p>
+
+    <div class="catalogue-grid">
+      <div class="catalogue-item">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=400" alt="Microphones">
+        <h4>High-End Microphones</h4>
+        <p>Industry standard vocal and instrument microphones for pristine capture.</p>
+        <span class="btn btn-sm btn-secondary">Details</span>
+      </div>
+      <div class="catalogue-item">
+        <img src="https://images.unsplash.com/photo-1520529624504-84c20689364b?auto=format&fit=crop&q=80&w=400" alt="Analog Gear">
+        <h4>Analog Outboard</h4>
+        <p>Premium compressors, EQs, and preamps for that warm, professional sound.</p>
+        <span class="btn btn-sm btn-secondary">Details</span>
+      </div>
+      <div class="catalogue-item">
+        <img src="https://images.unsplash.com/photo-1514483127413-f72f273478c3?auto=format&fit=crop&q=80&w=400" alt="Instruments">
+        <h4>Studio Instruments</h4>
+        <p>Guitars, synthesizers, and percussion available for every session.</p>
+        <span class="btn btn-sm btn-secondary">Details</span>
+      </div>
+      <div class="catalogue-item">
+        <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?auto=format&fit=crop&q=80&w=400" alt="DAW">
+        <h4>Production Suites</h4>
+        <p>State-of-the-art digital workstations and an extensive plugin library.</p>
+        <span class="btn btn-sm btn-secondary">Details</span>
+      </div>
+    </div>
+
+    <section class="brochure-section">
+      <h3>Download Our Full Brochure</h3>
+      <p>Get a detailed PDF of our studio rates, policies, and complete equipment list.</p>
+      <br>
+      <a href="#" class="btn" onclick="alert('Brochure download will be available soon!')">Download PDF Brochure</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Sharrix Studios Logo" width="30">
+        <h4>Sharrix Studios</h4>
+      </div>
+      <p class="footer-note">Same Game, Different Level. &copy; 2026 Sharrix Studios.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/918390000211" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+  </style>
+</body>
+</html>

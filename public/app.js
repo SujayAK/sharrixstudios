@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: formData.get('name'),
         phone: formData.get('phone'),
         email: formData.get('email'),
-        service: formData.get('service'),
-        date: formData.get('date'),
-        time: formData.get('time'),
+        service: formData.get('service') || 'Enquiry',
         notes: formData.get('notes')
       };
 
@@ -33,9 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
 
         if (response.ok) {
-          formMessage.textContent = result.message || 'Appointment booked successfully!';
+          formMessage.textContent = 'Message sent! Redirecting to WhatsApp...';
           formMessage.classList.add('success');
-          appointmentForm.reset();
+          
+          // Construct WhatsApp message
+          const whatsappNumber = '918390000211';
+          const text = `Hello Sharrix Studios!%0A%0A*New Enquiry*%0A*Name:* ${data.name}%0A*Phone:* ${data.phone}%0A*Email:* ${data.email}%0A*Service:* ${data.service}%0A*Message:* ${data.notes}`;
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
+          
+          setTimeout(() => {
+            appointmentForm.reset();
+            window.open(whatsappUrl, '_blank');
+          }, 1500);
         } else {
           formMessage.textContent = result.message || 'Something went wrong. Please try again.';
           formMessage.classList.add('error');
